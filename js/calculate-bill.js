@@ -1,3 +1,4 @@
+
 const calculateBtn = document.querySelector(".calculateBtn");//get a reference to the calculate button
 
 
@@ -57,4 +58,3 @@ function calculateBtnClicked(){
 
 
 calculateBtn.addEventListener('click', calculateBtnClicked);
-
