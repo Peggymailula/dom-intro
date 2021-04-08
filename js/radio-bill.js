@@ -3,9 +3,9 @@ var billItemType = document.querySelector( ".billItemTypeRadio");
 
 var TotalAddBtn = document.querySelector(".radioBillAddBtn");
 
-var callsTotalElem = document.querySelector(".callTotalTwo");
-var smsTotalElem = document.querySelector(".smsTotalTwo");
-var billTotalElement = document.querySelector(".totalTwo");
+var callsTotalElementt = document.querySelector(".callTotalTwo");
+var smsTotalElementt = document.querySelector(".smsTotalTwo");
+var billTotalElementt = document.querySelector(".totalTwo");
 var callsTotal = 0;
 var smsTotal = 0;
 
@@ -26,18 +26,18 @@ else if (billItemType === "sms"){
 }
 
 //update the totals that is displayed on the screen.
-callsTotalElem.innerHTML = callsTotal.toFixed(2);
-smsTotalElem.innerHTML = smsTotal.toFixed(2);
+callsTotalElementt.innerHTML = callsTotal.toFixed(2);
+smsTotalElementt.innerHTML = smsTotal.toFixed(2);
 
 var totalCost = callsTotal + smsTotal;
-billTotalElement.innerHTML = totalCost.toFixed(2);
+billTotalElementt.innerHTML = totalCost.toFixed(2);
 
 if (totalCost >= 50){
     // adding the danger class will make the text red
-    billTotalElement.classList.add("danger");
+    billTotalElementt.classList.add("danger");
 }
 else if (totalCost >= 30){
-    billTotalElement.classList.add("warning");
+    billTotalElementt.classList.add("warning");
 }
 
 

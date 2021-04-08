@@ -9,15 +9,30 @@ var TotalSettings = document.querySelector(".totalSettings");
 var callCostSetting= document.querySelector(".callCostSetting");
 var smsCostSetting = document.querySelector(".smsCostSetting");
 var warningLevelSetting = document.querySelector(".warningLevelSetting");
-var criticalLevelSetting = document.querySelector(".criticalLevelSetting")
+var criticalLevelSetting = document.querySelector(".criticalLevelSetting");
 
 var callTotall =0;
 var smsTotall = 0;
 
+//callTotalSettings.value=0;
+//smsTotalSettings.value=0;
+//TotalSettings.value=0;
+//warningLevelSetting.value=0;
+//criticalLevelSetting.value =0;
+
+
+
+
 
 function Update(){
 
-   //update
+    callTotalSettings.innerHTML = callTotalSettings.value;
+    smsTotalSettings.innerHTML = smsTotalSettings.value;
+    TotalSettings.innerHTML = TotalSettings.value;
+    warningLevelSetting.innerHTML = warningLevelSetting.value;
+    criticalLevelSetting.innerHTML = criticalLevelSetting.value;
+
+   // alert(callTotalSettings);
 
 
 }
@@ -38,8 +53,9 @@ else if (billItemTypeWithSettings === "sms"){
     smsTotall ++;
 }
 
-var CallTotaled= callTotall* callCostSetting.value;
+var CallTotaled = callTotall* callCostSetting.value;
 var smsTotaled= smsTotall * smsCostSetting.value;
+
 callTotalSettings.innerHTML = CallTotaled.toFixed(2);
 smsTotalSettings.innerHTML = smsTotaled.toFixed(2);
 
@@ -48,15 +64,15 @@ TotalSettings.innerHTML = totallyCost;
 
 
 
-if (totallyCost > criticalLevelSetting.value ){
+if (totallyCost >= criticalLevelSetting.value ){
     
     TotalSettings.classList.add("danger");
 }
 
 
 
-else if (totallyCost > warningLevelSetting.value ){
-    
+else if (totallyCost >= warningLevelSetting.value ){
+    TotalSettings.classList.remove("danger")
     TotalSettings.classList.add("warning");
 }
 
@@ -71,9 +87,9 @@ else if (totallyCost > warningLevelSetting.value ){
 // get refences to all the settings fields
 
 //get a reference to the add button
-updateBtn.addEventListener('click',Addition);
 
 TotalAddBtn.addEventListener('click', Addition);
+updateBtn.addEventListener('click',Update);
 
 
 //get a reference to the 'Update settings' button
