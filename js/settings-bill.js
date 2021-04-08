@@ -25,7 +25,7 @@ var callCost=0;
 var smsCost=0;
 var warningLevel=0;
 var criticalLevel=0;
-var totallyCost= TotalCostElement.value;
+var totallyCost= 0;
 
 
 
@@ -33,11 +33,11 @@ var totallyCost= TotalCostElement.value;
 
 function Update(){
 
-    callCost = callCostSettingElement.value;
-    smsCost = smsCostSettingElement.value;
+    callCost = Number(callCostSettingElement.value);
+    smsCost = Number(smsCostSettingElement.value);
    // totallyCost= TotalCostElement.value;
-    warningLevel = warningLevelElement.value;
-    criticalLevel = criticalLevelElement.value;
+    warningLevel = Number(warningLevelElement.value);
+    criticalLevel = Number(criticalLevelElement.value);
 
     colours(totallyCost);
 
@@ -50,26 +50,32 @@ function Update(){
 function Addition(){
 
 var checkRadioBtn = document.querySelector("input[name='billItemTypeWithSettings']:checked");
-if (checkRadioBtn){
-     billItemTypeWithSettings = checkRadioBtn.value
-    // billItemType will be 'call' or 'sms'
-}
+if(totallyCost < criticalLevel){
+    if (checkRadioBtn){
 
-if (billItemTypeWithSettings === "call"){
-    callTotall  ++;
-}
-else if (billItemTypeWithSettings === "sms"){
-    smsTotall ++;
-}
+        billItemTypeWithSettings = checkRadioBtn.value
+       // billItemType will be 'call' or 'sms'
+   }
+   
+   if (billItemTypeWithSettings === "call"){
+       callTotall += callCost
+       totallyCost +=callCost
+   }
+   else if (billItemTypeWithSettings === "sms"){
+       smsTotall += smsCost;
+       totallyCost += smsCost
+   }
+   }
 
-var CallTotaled = callTotall*callCost;
-var smsTotaled= smsTotall *  smsCost;
 
-callCostTotalElement.innerHTML = CallTotaled.toFixed(2);
-smsCostTotalElement.innerHTML = smsTotaled.toFixed(2);
+// var CallTotaled = callTotall*callCost;
+// var smsTotaled= smsTotall *  smsCost;
+console.log(callTotall)
+callCostTotalElement.innerHTML = callTotall.toFixed(2);
+smsCostTotalElement.innerHTML = smsTotall.toFixed(2);
 
- totallyCost = CallTotaled + smsTotaled;
-TotalCostElement.innerHTML = totallyCost;
+
+TotalCostElement.innerHTML = totallyCost.toFixed(2);
 colours(totallyCost);
 
 }

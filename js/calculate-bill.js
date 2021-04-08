@@ -2,7 +2,7 @@
 var calculateBtn = document.querySelector(".calculateBtn");//get a reference to the calculate button
 
 
-var billTotalElemen = document.querySelector(".billTotal");//get a reference to the billTotal element
+var billTotalElement = document.querySelector(".billTotal");//get a reference to the billTotal element
 
 var billStringField = document.querySelector(".billString");  //get a reference to the billString
 
@@ -37,19 +37,23 @@ function calculateBtnClicked(){
     
     //round to two decimals
     var roundedBillTotal = billTotal.toFixed(2);
-    billTotalElemen.innerHTML = roundedBillTotal;
+    billTotalElement.innerHTML = roundedBillTotal;
 
 
    //if ( roundedBillTotal < 20) {
      //  roundedBillTotal.classList.remove('');
    //}
     if(  roundedBillTotal >= 20 && roundedBillTotal <= 30 ){
-     //   billTotalElement.classList.remove("danger");
-       billTotalElemen.classList.add("warning");
+       billTotalElement.classList.remove("danger");
+       billTotalElement.classList.add("warning");
     }
     else if( roundedBillTotal > 30) {
-      //  billTotalElement.classList.remove("warning");
-       billTotalElemen.classList.add("danger");
+       billTotalElement.classList.remove("warning");
+       billTotalElement.classList.add("danger");
+    }
+    else{
+      billTotalElement.classList.remove("warning");
+      billTotalElement.classList.remove("danger");
     }
    
 

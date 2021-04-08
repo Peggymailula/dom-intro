@@ -29,14 +29,14 @@ else if (billItemType === "sms"){
 callsTotalElementt.innerHTML = callsTotal.toFixed(2);
 smsTotalElementt.innerHTML = smsTotal.toFixed(2);
 
-var totalCost = callsTotal + smsTotal;
-billTotalElementt.innerHTML = totalCost.toFixed(2);
+var totalCoste = callsTotal + smsTotal;
+billTotalElementt.innerHTML = totalCoste.toFixed(2);
 
-if (totalCost >= 50){
+if (totalCoste >= 50){
     // adding the danger class will make the text red
     billTotalElementt.classList.add("danger");
 }
-else if (totalCost >= 30){
+else if (totalCoste >= 30){
     billTotalElementt.classList.add("warning");
 }
 
