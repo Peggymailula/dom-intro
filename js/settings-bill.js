@@ -40,6 +40,7 @@ function Update(){
     criticalLevel = Number(criticalLevelElement.value);
 
     colours(totallyCost);
+    //alert(callCost);
 
    // alert(callTotalSettings);
    //TotalCostElement.classList.remove("warning");
